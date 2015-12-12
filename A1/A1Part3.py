@@ -1,3 +1,4 @@
+import numpy as np
 """
 A1-Part-3: Python array indexing
 
@@ -11,11 +12,19 @@ If you run your code with x = np.arange(10) and N = 2, the function should retur
 array([0, 2, 4, 6, 8]).
 """
 def hopSamples(x,N):
-    """
-    Inputs:
-        x: input numpy array
-        N: a positive integer, (indicating hop size)
-    Output:
-        A numpy array containing every Nth element in x, starting from the first element in x.
-    """
-    ## Your code here
+	"""
+	Inputs:
+		x: input numpy array
+		N: a positive integer, (indicating hop size)
+	Output:
+		A numpy array containing every Nth element in x, starting from the first element in x.
+	"""
+	ret = np.array([])
+
+	x_len = len(x)
+
+	for i in range(0,x_len):
+		if(i%N == 0):
+			ret = np.append(ret, x[i])
+
+	return ret

@@ -16,10 +16,16 @@ If you run your code using oboe-A4.wav as the input, the function should return 
 (-0.83486432, 0.56501967)
 """
 def minMaxAudio(inputFile):
-    """
-    Input:
-        inputFile: file name of the wav file (including path)
+	"""
+	Input:
+		inputFile: file name of the wav file (including path)
     Output:
-        A tuple of the minimum and the maximum value of the audio samples, like: (min_val, max_val)
-    """
-    ## Your code here
+    	A tuple of the minimum and the maximum value of the audio samples, like: (min_val, max_val)
+	"""
+	sound = inputFile
+	f,sound_array = wavread(sound)
+
+	sound_min = min(sound_array)
+	sound_max = max(sound_array)
+
+	return (sound_min, sound_max)
