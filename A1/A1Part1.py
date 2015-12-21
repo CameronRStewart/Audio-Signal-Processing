@@ -2,6 +2,7 @@ import sys
 import os
 sys.path.append('../../software/models/')
 from utilFunctions import wavread
+import numpy
 
 """
 A1-Part-1: Reading an audio file
@@ -39,15 +40,11 @@ def readAudio(inputFile):
     !play 'new_name'
     """
 
-    import sys
-    sys.path.append('/home/aspma/aspma-course/sms-tools/software/models')
-    import utilFunctions as uf
-    import numpy
 
     sound = inputFile
-    f,sound_array = uf.wavread(sound)
+    f,sound_array = wavread(sound)
     start_sample_range = 50000
-    ret = []
-    for i in range(1,11):
-	ret.append(sound_array[start_sample_range + i])
+    ret = numpy.array([])
+    for i in range(0,10):
+	   ret = numpy.append(ret, sound_array[start_sample_range + i])
     return ret
