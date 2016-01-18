@@ -28,7 +28,6 @@ def suppressFreqDFTmodel(x, fs, N):
     outputScaleFactor = sum(w)
     
     mX1, pX1 = dftAnal(x, w, N)
-    mX1 = asu.convertDecibels(mX1)
 
     bin_index = asu.calcBinValue(fs, N, attenuated_freq)
 
